@@ -8,7 +8,7 @@ import 'react-date-range/dist/styles.css'
 import { format } from "date-fns"
 
 
-const Header = () => {
+const Header = ({type}) => {
   const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     {
@@ -57,7 +57,9 @@ const Header = () => {
             <span>Airport Taxi</span>
             </div>
         </div>
-        <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
+       { type !== "list" &&
+       
+       <> <h1 className="headerTitle">Kosher Rentals, wherever you crave.</h1>
         <p className="headerDesc">Get rewards for your travels - unlock instant savings of 10% or more with a free Guestay account</p>
         <button className="headerBtn">Sign in / Register</button>
         <div className="headerSearch">
@@ -75,13 +77,13 @@ const Header = () => {
   moveRangeOnFirstSelection={false}
   ranges={date}
   className="date"
-/>}
+/> }
         </div>
 
         <div className="headerSearchItem">
         <FontAwesomeIcon icon={faPerson} className="headerIcon"/>
-        <span className="headerSearchText">{`${guests.adult} adult * ${guests.children} children ${guests.room} room`}</span>
-        <div className="guests">
+        <span onClick={() => setOpenGuests(!openGuests)} className="headerSearchText">{`${guests.adult} adult * ${guests.children} children ${guests.room} room`}</span>
+{openGuests &&        <div className="guests">
           <div className="guestItem">
             <span className="guestText">Adults</span>
             <div className="guestCounter">
@@ -106,12 +108,12 @@ const Header = () => {
             <button className="guestCounterButton" onClick={() => handleGuest("room", "i")}>+</button>
             </div>
           </div>
-        </div>
+        </div>}
         </div>
         <div className="headerSearchItem">
           <button className="headerBtn">Search</button>
         </div>
-        </div>
+        </div>  </>}
         </div>
     </div>
   )
