@@ -1,0 +1,42 @@
+.loved{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.lovedItem{
+    flex: 1;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lovedImg{
+    width: 100%;
+}
+
+.lovedName{
+    font-weight: bold;
+}
+
+.lovedCity{
+    font-weight: 300;
+}
+
+.lovedPrice{
+    font-weight: 500;
+}
+
+.lovedRating>button{
+    background-color: #003580;
+    color: white;
+    border: none;
+    padding: 3px;
+    margin-right: 10px;
+}
+
+.lovedRating>span{
+    font-size: 14px;
+}
